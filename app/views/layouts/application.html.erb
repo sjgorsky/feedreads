@@ -1,16 +1,42 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Feedreads</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title><%= full_title(yield(:title)) %></title>
+    <meta charset="utf-8">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag 'application', media: 'all',
+                                           'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+      </script>
+    <![endif]-->
   </head>
-
   <body>
-    <%= yield %>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+        <% end %>
+        <nav>
+          <ul class="navbar">
+            <li><%= link_to "Home",             root_path %></li>
+            <li><%= link_to "About",            about_path %></li>
+            <li><%= link_to "Contact",          contact_path %></li>
+            <li><%= link_to "Add New Cookbook", new_book_path %></li>
+            <li><%= link_to "Cookbooks Index",  books_path %></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+    <main class="container">
+        <%= yield %>
+    </main>
+    </div>
+    <div class="lower-img">
+    <%= image_tag("recipe_books_header.png", alt: "Row of cookbooks") %></div>
   </body>
 </html>
