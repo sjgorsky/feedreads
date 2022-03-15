@@ -41,13 +41,13 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @book.destroy
 
-    redirect_to root_path
+    redirect_to root_path, status: :see_other
   end
 
   private
 
     private
     def book_params
-      params.require(:book).permit(:title, :author, :id)
+      params.require(:book).permit(:title, :author, :cuisine, :id)
     end
 end
