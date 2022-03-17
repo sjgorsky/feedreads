@@ -29,8 +29,9 @@ ul li {
 }
 
 table {
+  font-size: 20px;
   table-layout: fixed;
-  width: 50%;
+  width: 40%;
   margin: 20px;
   border: 3px solid;
   border-collapse: collapse;
@@ -46,10 +47,15 @@ tr:nth-child(even) {
   background-color: #c8e3ff;
 }
 
+th:nth-child(1) {
+  width: 7%;
+  text-align: center;
+}
+
 .lower-img {
   position: fixed;
   bottom: 0px;
-  margin-left: 35%;
+  margin-left: 28%;
 }
 
 .button {
@@ -92,4 +98,8 @@ tr:nth-child(even) {
   background-color: #a0c7e4;
   box-shadow: none;
   color: #2c5777;
+}
+
+.new-btn {
+  margin-left: 20px;
 }
