@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get '/about',   to: 'static_pages#about'
   get '/contact', to: 'static_pages#contact'
 
-  resources :books
+  resources :books do
+    resources :recipes
+  end
   get "/books/:id", to: "books#show"
 end
